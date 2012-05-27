@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="2.5" type="template" client="administrator" method="upgrade">
+	<name>jQuery Mobile Administrator Template</name>
+	<creationDate>2012-6-21</creationDate>
+	<author>Sean Goresht</author>
+	<copyright>Copyright © 2012 seangoresht.com</copyright>
+	<authorEmail>seangores@gmail.com</authorEmail>
+	<authorUrl>https://www.seangoresht.com</authorUrl>
+	<version>1.0.0</version>
+	<description><![CDATA[
+		<h1>Joomla jQuery Mobile Administrator Template</h1>
+		<p><img src="../templates/templatename/template_preview.png" /></p>
+		<h2>Module positions</h2>
+		<ul class = "list-icon circlearrow">
+			<li>header</li>
+			<li>menu</li>
+			<li>footer</li>
+			<li>debug</li>
+		</ul>
+		<h2>
+			Features
+		</h2><p>This jQuery Mobile Joomla Administrator template will display all your admin backend in a jQuery Mobile-friendly fashion, allowing all you to view it on your mobile device </p>
+		<ul class = "check">
+			<li>Works with native phone APIs including Android, iOS, Symbian, PalmOS, and more</li>
+			<li>New, user-friendly interface</li>
+			<li>Easily configurable</li>
+			<li><strong>Access your content anywhere while on the go!</strong></li>
+			<li>Optimized to work with both YooTheme and RocketTheme templates</li>
+		</ul>
+		<p>Created by <a href="https://www.seangoresht.com" target="_blank">Sean Goresht | seangoresht.com</a>.</p>
+		<p>Thanks to the creator of Blank Template at http://blank.vc/ for their nice template!</p>
+	]]></description>
+	
+	<files>
+		<folder>css</folder>
+				<folder>custom</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<filename>apple-touch-icon-57x57.png</filename>
+		<filename>apple-touch-icon-72x72.png</filename>
+		<filename>apple-touch-icon-114x114.png</filename>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>favicon.ico</filename>
+		<filename>index.php</filename>
+		<filename>offline.php</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<filename>templateDetails.xml</filename>
+	</files>
+	
+	<languages folder="language">
+		<language tag="de-DE">de-DE.jqueryadmin.ini</language>
+		<language tag="en-GB">en-GB.jqueryadmin.ini</language>
+	</languages>
+	
+	<positions>
+		<position>header</position>
+		<position>menu</position>
+		<position>footer</position>
+		<position>debug</position>
+	</positions>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+				<field name="FIELD_SPACER_HEADER_DESC" type="spacer" hr="false" />
+			</fieldset>
+			<fieldset name="simple">
+				<field name="JQUERY_MOBILE_VERSION_DESC" type="text" hr="false" default = "1.1.0"/>
+				<field name="JQUERY_VERSION_DESC" type="text" hr="false" default = "1.7.2"/>
+			</fieldset> 
+		</fields>
+	</config>
+</extension>
