@@ -34,7 +34,7 @@
 	
 	<files>
 		<folder>css</folder>
-				<folder>custom</folder>
+		<folder>custom-css</folder>
 		<folder>html</folder>
 		<folder>images</folder>
 		<folder>js</folder>
@@ -65,12 +65,13 @@
 	
 	<config>
 		<fields name="params">
-			<fieldset name="advanced">
-				<field name="FIELD_SPACER_HEADER_DESC" type="spacer" hr="false" />
-			</fieldset>
+			<field name="custom-css" type="list" default="1" label="Enable Custom CSS Loading" description="Allow for the custom loading of CSS files located in the CSS directory of the template.">
+				   <option value="0">No</option>
+				   <option value="1">Yes</option>
+			</field>
 			<fieldset name="simple">
-				<field name="JQUERY_MOBILE_VERSION_DESC" type="text" hr="false" default = "1.1.0"/>
-				<field name="JQUERY_VERSION_DESC" type="text" hr="false" default = "1.7.2"/>
+				<field name="jquery_mobile_version" type="text" default="1.1.0" size="80" label="Jquery Mobile Version" description="Enter the jQuery Mobile version number to load (default is 1.1.0)." />
+				<field name="jquery_version" type="text" default="1.7.2" size="80" label="Jquery Version to load" description="Enter the jQuery version number to load (default is 1.7.2)." />
 			</fieldset> 
 		</fields>
 	</config>

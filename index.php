@@ -23,17 +23,28 @@ $doc->addScript($tpath.'/js/modernizr.js'); // <- this script must be in the hea
 
 /*Load jQuery Mobile and jQuery resources*/
 
+/*echo "Params: ". $params;
+echo "jQuery version: ". $params->get('jquery_version');
+echo "jQuery mobile version: ". $params->get('jquery_mobile_version');
+
+echo "pageclass: ". $params->get('pageclass_sfx');*/
+
 //Load jQuery library first (needs to happen in order to load jQuery Mobile) from CDN
-$doc->addStyleSheet("http://ajax.googleapis.com/ajax/libs/jquery/". $this->$params->get('jquery_version'). 'min.css');
+$doc->addScript("http://ajax.googleapis.com/ajax/libs/jquery/". $params->get('jquery_version', '1.7.2'). '/jquery.min.js');
 //Turn on no-conflict mode for jQuery conflicting with MooTools
-$doc->addStyleSheet($tpath.'/js/jquery.noconflict.js');
+$doc->addScript($tpath.'/js/jquery.noconflict.js');
 //Load jQuery Mobile version from CDN
-$doc->addStyleSheet("http://code.jquery.com/mobile/1.1.0/jquery.mobile-". $this->$params->get('jquery_mobile_version'). 'min.css');
+$doc->addScript("http://code.jquery.com/mobile/1.1.0/jquery.mobile-". $params->get('jquery_mobile_version', '1.1.0'). '.min.js');
+//Load jQuery Mobile stylesheet from CDN
+$doc->addStyleSheet("http://code.jquery.com/mobile/1.1.0/jquery.mobile-". $params->get('jquery_mobile_version', '1.1.0'). '.min.css');
 
 /*Import custom-defined CSS files.  CSS files must be placed in css/custom directory, or they will not be loaded!*/
 
 //Documented at http://php.net/manual/en/function.readdir.php
-if ($handle = opendir($tpath.'/css/custom')) 
+
+if ($params->get('custom-css', '0') == "1")
+{
+    if ($handle = opendir($tpath.'/custom-css')) 
   {
     /* Loop over the directory. */
     while (false !== ($entry = readdir($handle))) 
@@ -43,11 +54,12 @@ if ($handle = opendir($tpath.'/css/custom'))
         if ($extension == "css")
         {
           //Load the files if that's true
-          $doc->addStyleSheet($tpath.'/css/custom/' . $entry);
+          $doc->addStyleSheet($tpath.'/custom-css/' . $entry);
         }
     }
     closedir($handle); //Always a good idea to close our directory (in terms of permissions)
   }
+}
 
 /*unset scripts, put them into /js/template.js.php to minify http requests*/
 unset($doc->_scripts[$this->baseurl.'/media/system/js/mootools-core.js']);
@@ -62,7 +74,7 @@ unset($doc->_scripts[$this->baseurl.'/media/system/js/caption.js']);
 <!--[if gt IE 8]><!-->  <html class="no-js" lang="<?php echo $this->language; ?>"> <!--<![endif]-->
 
 <head>
-  <script type="text/javascript" src="<?php echo $tpath.'/js/template.js.php'; ?>"></script>
+  <!-- <script type="text/javascript" src="<?php echo $tpath.'/js/template.js.php'; ?>"></script> -->
   <jdoc:include type="head" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> <!-- mobile viewport -->
   <link rel="stylesheet" media="only screen and (max-width: 768px)" href="<?php echo $tpath; ?>/css/tablet.css" type="text/css" />
