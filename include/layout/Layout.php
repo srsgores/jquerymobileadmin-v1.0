@@ -10,7 +10,15 @@
      Licensed under the GNU Public License
  
  --------------------------------------------------------------------------------------------------------------------- */
-
-defined('_JEXEC') or die;
-
- ?>
+ 
+/**
+ * Layout class for creating new layouts
+ */
+ class Layout
+ {
+ 	
+ 	function __construct()
+ 	{
+ 		# code...
+ 	}
+ } ?>
